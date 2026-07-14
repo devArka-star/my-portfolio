@@ -1147,6 +1147,11 @@ img {
         width: 100%;
     }
 
+    .home-info .btn-sci .sci a{
+      margin-top: -25px;
+     
+     }
+
     /* Dimmed backdrop shown behind the slide-in menu. Sits just below
        the menu's z-index but above the rest of the page, and closes
        the menu when tapped (see JS). */
@@ -1337,7 +1342,7 @@ img {
 
     .home-info .btn-sci .sci a{
       margin-top: 25px;
-      margin-left:-5px;
+      margin-right: 15px;
      }
 
     .home-info p {
