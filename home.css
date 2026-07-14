@@ -184,7 +184,7 @@ a{
     border-radius: 50%;
     margin: 0 8PX;
     transition: 0.5s;
-    margin-top: 20px;
+    
 }
 .home-info .btn-sci .sci a:hover{
     background: #7cf03d;
@@ -1188,7 +1188,7 @@ img {
         justify-content: center;
         flex-wrap: wrap;
     }
-
+     
     /* Push the animated role text ("FullStack Developer" / "MCA Student")
        onto its own centered line below "I'm a". The spans stay
        position:absolute so the existing typewriter/fill animation
@@ -1334,6 +1334,10 @@ img {
     .home-info h2 span {
         top: 26px;
     }
+
+    .home-info .btn-sci .sci a{
+      margin-top: 25px;
+     }
 
     .home-info p {
         font-size: 13px;
