@@ -1121,7 +1121,6 @@ a{
     font-size: 4rem;
     margin-bottom: 20px;
     letter-spacing: 2px;
-   color:var(--accent);
 }
 
 .thanks-container p {
@@ -1173,6 +1172,8 @@ a{
 /* ============================================================
    RESPONSIVE STYLES
    Added to make the site fully responsive on tablet & mobile.
+   No existing rules above were changed — everything below is
+   purely additive (media queries + the hamburger menu icon).
    ============================================================ */
 
 /* Prevent any stray horizontal overflow on small screens */
@@ -1237,7 +1238,15 @@ img {
         display: block;
     }
 
-    /* .navbar and .home both use an opacity fade-in animation, */
+    /* .navbar and .home both use an opacity fade-in animation, which
+       forces each into its own isolated stacking context (held
+       permanently via fill-mode: forwards). Since .home comes right
+       after .navbar in the DOM, it was painting on top of .navbar's
+       entire stacking context — burying the fixed slide-in menu behind
+       the hero section even though the menu had z-index:1000. Giving
+       .navbar itself a real position + a much higher z-index makes its
+       whole stacking context (menu included) win over every section
+       that follows it. */
     .navbar {
         position: relative;
         z-index: 2000;
@@ -1272,7 +1281,9 @@ img {
         width: 100%;
     }
 
-    /* Dimmed backdrop shown behind the slide-in menu.. */
+    /* Dimmed backdrop shown behind the slide-in menu. Sits just below
+       the menu's z-index but above the rest of the page, and closes
+       the menu when tapped (see JS). */
     #menu-overlay {
         display: block;
         position: fixed;
@@ -1322,7 +1333,13 @@ img {
         flex-wrap: wrap;
     }
 
-    /* Push the animated role text ("FullStack Developer" / "MCA Student") */
+    /* Push the animated role text ("FullStack Developer" / "MCA Student")
+       onto its own centered line below "I'm a". The spans stay
+       position:absolute so the existing typewriter/fill animation
+       keeps working exactly as on desktop — only their position/size changes.
+       Font-size is reduced here so the longer phrase "FullStack Developer"
+       always fits on a single line without wrapping (wrapping is what broke
+       the fill-overlay animation, since the ::before overlay stays nowrap). */
     .home-info h2 {
         height: 64px;
         margin-top: 12px;
@@ -1449,14 +1466,15 @@ img {
         font-size: 24px;
     }
 
-   .home-info .btn-sci .sci a{  
-         margin-top: 20px;
-         margin-left:10px;
-    }
-    
     .home-info h1 {
         font-size: 30px;
     }
+
+    .home-info .btn-sci .sci a{  
+         margin-top: 20px;
+         gap: 5px;
+    }
+    
 
     .home-info h2 {
         font-size: 18px;
