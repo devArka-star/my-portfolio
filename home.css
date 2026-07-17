@@ -1448,10 +1448,10 @@ img {
         font-size: 24px;
     }
 
-
-    .navbar ul li:hover a,.navbar ul li.active a{
-       margin-top: 20px;
+   .home-info .btn-sci .sci a{
+      margin-top: 20px;
     }
+    
     .home-info h1 {
         font-size: 30px;
     }
