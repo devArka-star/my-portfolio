@@ -1449,8 +1449,7 @@ img {
         font-size: 24px;
     }
 
-   .home-info .btn-sci .sci a{
-         display: flex;          
+   .home-info .btn-sci .sci a{  
          justify-content: center;  
          align-items: center;       
       
