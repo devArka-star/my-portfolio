@@ -8,6 +8,14 @@
 
 
   <title>Portfolio</title>
+  <script>
+    
+    (function () {
+      var saved = localStorage.getItem('theme');
+      var theme = saved || (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
   <link rel="stylesheet" href="home.css" />
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
@@ -22,15 +30,35 @@
 
   <nav class="navbar">
     <a href="#" class="logo">Portfolio.</a>
-    <ul>
-      <li class="active"><a href="#home">Home</a></li>
-      <li><a href="#About">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#education-experience">Education</a></li>
-      <li><a href="#Project">Project</a></li>
-      <li><a href="#Contact">Contact</a></li>
-    </ul>
-    <div class="bx bx-menu" id="menu-icon"></div>
+    <div class="nav-right">
+      <ul>
+        <li class="active"><a href="#home">Home</a></li>
+        <li><a href="#About">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education-experience">Education</a></li>
+        <li><a href="#Project">Project</a></li>
+        <li><a href="#Contact">Contact</a></li>
+      </ul>
+      <div class="nav-controls">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle light and dark theme" title="Toggle theme">
+          <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.5"></circle>
+            <line x1="12" y1="1.8" x2="12" y2="4.2"></line>
+            <line x1="12" y1="19.8" x2="12" y2="22.2"></line>
+            <line x1="4.2" y1="4.2" x2="5.9" y2="5.9"></line>
+            <line x1="18.1" y1="18.1" x2="19.8" y2="19.8"></line>
+            <line x1="1.8" y1="12" x2="4.2" y2="12"></line>
+            <line x1="19.8" y1="12" x2="22.2" y2="12"></line>
+            <line x1="4.2" y1="19.8" x2="5.9" y2="18.1"></line>
+            <line x1="18.1" y1="5.9" x2="19.8" y2="4.2"></line>
+          </svg>
+        </button>
+        <div class="bx bx-menu" id="menu-icon"></div>
+      </div>
+    </div>
   </nav>
 
   <div id="menu-overlay"></div>
@@ -449,6 +477,21 @@
 
 
 
+
+  <!-- Light / dark theme toggle -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggleBtn = document.getElementById('theme-toggle');
+      const root = document.documentElement;
+
+      toggleBtn.addEventListener('click', function () {
+        const current = root.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        const next = current === 'light' ? 'dark' : 'light';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
+      });
+    });
+  </script>
 
   <!-- Mobile hamburger menu toggle -->
   <script>
