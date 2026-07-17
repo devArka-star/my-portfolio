@@ -1121,6 +1121,7 @@ a{
     font-size: 4rem;
     margin-bottom: 20px;
     letter-spacing: 2px;
+   color:var(--accent);
 }
 
 .thanks-container p {
@@ -1449,7 +1450,11 @@ img {
     }
 
    .home-info .btn-sci .sci a{
-      margin-top: 20px;
+         display: flex;          
+         justify-content: center;  
+         align-items: center;       
+      
+         margin-top: 20px;
     }
     
     .home-info h1 {
