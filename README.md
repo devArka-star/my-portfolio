@@ -16,6 +16,7 @@ You can view my live portfolio here:
 * `index.html`: The main entry point for the website.
 * `home.css`: Contains all custom styles for the layout.
 * `img/`: Contains images and media assets used across the site.
+* `asset/`: Contains all documents.
 
 ## 💡 About Me
 I am a dedicated MCA student and Full-Stack Developer. I enjoy building secure, efficient, and scalable web solutions and turning complex technical challenges into real-world applications.
