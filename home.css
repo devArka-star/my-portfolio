@@ -1450,10 +1450,8 @@ img {
     }
 
    .home-info .btn-sci .sci a{  
-         justify-content: center;  
-         align-items: center;       
-      
          margin-top: 20px;
+         margin-left:10px;
     }
     
     .home-info h1 {
